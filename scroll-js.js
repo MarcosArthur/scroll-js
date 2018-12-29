@@ -2,16 +2,12 @@ class ScrollJs {
 
   constructor(elements) {
     this._elements = document.querySelectorAll(elements);
-    this.addClassElements();
     this.addStyleDOM();
+    this.scrollEvent();
   }
 
   get elements() {
     return this._elements;
-  }
-
-  addClassElements() {
-    this._elements.forEach(e => e.classList.add('scroll'));
   }
 
   addStyleDOM() {
@@ -23,21 +19,21 @@ class ScrollJs {
       }
 
       .left {
-        transform: translateX(-30vh);
+        transform: translateX(-60px);
         opacity: 0;
-        transition: all .2s;
+        transition: .3s;
       }
 
       .right {
-        transform: translateX(30vh);
+        transform: translateX(60px);
         opacity: 0;
-        transition: all .2s;
+        transition: .3s;
         float: right;
       }
 
       .left.active,
       .right.active {
-        transform: translateX(0);
+        transform: translateX(0vh);
         opacity: 1;
       }
 
@@ -51,12 +47,12 @@ class ScrollJs {
     window.addEventListener('scroll', () => {
       this.elements.forEach(e => {
         let elementTop = e.offsetTop;
-        let windowsScroll = window.pageYOffset + 250;
+        let windowsScroll = window.pageYOffset + (window.innerHeight / 2);
 
         if (windowsScroll > elementTop) {
           e.classList.add('active')
         }
-
+          
       })
     })
 
