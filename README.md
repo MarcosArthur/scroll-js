@@ -1,4 +1,4 @@
-#h1 scroll-js
+# scroll-js
 Pequena animação de elementos com scroll basta fazer a intancia do objeto 
 
 Ex: 
